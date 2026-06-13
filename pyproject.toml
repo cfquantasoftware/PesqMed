@@ -19,7 +19,7 @@ dev = [
 ]
 
 [project.scripts]
-pesqmed = "pesqmed.views.menu:main"
+pesqmed = "pesqmed.views.menu:run"
 
 [tool.setuptools.packages.find]
 where = ["src"]

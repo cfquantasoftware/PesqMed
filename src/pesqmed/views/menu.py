@@ -1,10 +1,14 @@
 """Primeira tela do App PesqMed: menu principal com imagem de fundo."""
 
 import sys
+from pathlib import Path
 
 import flet as ft
 
 from pesqmed.config import APP_TITLE, LOGO
+
+# Pasta assets/ na raiz do projeto (src/pesqmed/views/menu.py -> sobe 3 níveis)
+ASSETS_DIR = str(Path(__file__).resolve().parents[3] / "assets")
 
 
 def build_layout(page: ft.Page) -> ft.Control:
@@ -37,16 +41,15 @@ def build_layout(page: ft.Page) -> ft.Control:
     return ft.Stack(
         expand=True,
         controls=[
-            # Imagem de fundo
-            ft.Image(src=LOGO, fit="cover", expand=True),
+            # Logo centralizada (maior, sem preencher a tela toda)
+            ft.Container(
+                expand=True,
+                alignment=ft.Alignment(0, 0),
+                content=ft.Image(src=LOGO, width=726, fit="contain"),
+            ),
             # Camada escura
             ft.Container(expand=True, bgcolor="#80000000"),
-            # Marca d'água (canto superior direito)
-            ft.Container(
-                alignment=ft.Alignment(1, -1),
-                padding=20,
-                content=ft.Image(src=LOGO, width=120, opacity=0.6),
-            ),
+            
             # Conteúdo principal
             ft.Row(
                 expand=True,
@@ -54,10 +57,11 @@ def build_layout(page: ft.Page) -> ft.Control:
                     ft.Container(content=menu, width=260, padding=20, bgcolor="#CCFFFFFF"),
                     ft.Container(
                         expand=True,
+                        padding=20,
                         content=ft.Column(
                             controls=[texto],
-                            alignment=ft.MainAxisAlignment.CENTER,
-                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                            alignment=ft.MainAxisAlignment.END,
+                            horizontal_alignment=ft.CrossAxisAlignment.END,
                         ),
                     ),
                 ],
@@ -71,4 +75,12 @@ def main(page: ft.Page) -> None:
     page.padding = 0
     page.spacing = 0
     page.add(build_layout(page))
-# Comentaario 
+
+
+def run() -> None:
+    """Ponto de entrada: inicia o app Flet com a tela de menu."""
+    ft.app(target=main, assets_dir=ASSETS_DIR)
+
+
+if __name__ == "__main__":
+    run()
