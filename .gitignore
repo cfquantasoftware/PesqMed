@@ -1,0 +1,33 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Build
+build/
+dist/
+
+# Segredos e ambiente
+.env
+
+# Flet / Storage
+storage/
+.flet/
+
+# Dados locais
+data/*.db
+data/*.sqlite3
+*.session.sql
+
+# IDE / SO
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

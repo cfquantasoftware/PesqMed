@@ -1,0 +1,2 @@
+# Dependências de execução do App PesqMed
+flet==0.85.1
