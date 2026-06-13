@@ -1,7 +1,7 @@
 # App PesqMed
 
 Aplicação desktop (Flet + Python) para cadastro e manutenção da base de médicos,
-com backend MySQL. A primeira tela é o menu principal (`menu.py`).
+com backend Postgre, usando otimização NVIDIA RAPIDIS. A primeira tela é o menu principal (`menu.py`).
 
 ## Estrutura do projeto
 
